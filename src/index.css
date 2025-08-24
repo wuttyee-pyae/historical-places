@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Montserrat', sans-serif; /* Using a modern, clean font */
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark; /* Prioritize dark mode */
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #0b0a1d; /* Slightly darker base */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 100vw; /* Full viewport width */
+  min-height: 100vh; /* Full viewport height */
+  background: radial-gradient(at 50% 0%, #171833 0%, #0b0a1d 100%); /* Adjusted gradient */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  position: relative; /* Needed for pseudo-elements */
+}
+
+/* More subtle starry effect */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+body::before {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20% 30%, #f0f0f0, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 80% 10%, #f0f0f0, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50% 60%, #f0f0f0, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 10% 80%, #f0f0f0, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90% 90%, #f0f0f0, rgba(0,0,0,0));
+  background-size: 400px 400px; /* Larger background size for fewer, larger stars */
+  opacity: 0.6;
+  animation: twinkle 10s infinite alternate;
+}
+
+body::after {
+  background-image: 
+    radial-gradient(1px 1px at 70% 20%, #d0d0d0, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 30% 90%, #d0d0d0, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 95% 40%, #d0d0d0, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 5% 50%, #d0d0d0, rgba(0,0,0,0));
+  background-size: 600px 600px; /* Even larger background size for very subtle distant stars */
+  opacity: 0.3;
+  animation: twinkle 12s infinite reverse alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.02); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+
+#root {
+  width: 100%;
+  padding: 0;
+}
+
+/* Enhanced glassmorphism effect for cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03); /* More transparent background */
+  border-radius: 24px; /* Slightly more rounded */
+  backdrop-filter: blur(20px); /* Increased blur */
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Lighter, more subtle border */
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25); /* More diffused shadow */
+  transition: all 0.3s ease-in-out;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 80px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Specific gradient classes for card backgrounds */
+.card-gradient-1 {
+  background: linear-gradient(135deg, rgba(103, 58, 183, 0.3) 0%, rgba(63, 81, 181, 0.3) 100%);
+}
+.card-gradient-2 {
+  background: linear-gradient(135deg, rgba(0, 150, 136, 0.3) 0%, rgba(0, 188, 212, 0.3) 100%);
+}
+.card-gradient-3 {
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.3) 0%, rgba(255, 87, 34, 0.3) 100%);
+}
+.card-gradient-4 {
+  background: linear-gradient(135deg, rgba(139, 195, 74, 0.3) 0%, rgba(205, 220, 57, 0.3) 100%);
+}

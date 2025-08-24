@@ -1,0 +1,431 @@
+/* General App Layout */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.5rem;
+    /* Equivalent to p-6 */
+}
+
+/* Header */
+.header {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    /* Equivalent to mb-10 */
+    text-align: center;
+    padding: 0.75rem 1rem;
+    /* Equivalent to px-4 py-3 */
+}
+
+.header-content {
+    width: 100%;
+    max-width: 7xl;
+}
+
+.app-title {
+    font-size: 3rem;
+    /* text-5xl */
+    font-weight: 800;
+    /* font-extrabold */
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.app-subtitle {
+    font-size: 1.125rem;
+    /* text-lg */
+    color: #a0aec0;
+    /* gray-400 */
+    margin-bottom: 1rem;
+}
+
+.current-time,
+.current-date {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #a0aec0;
+    /* gray-400 */
+    opacity: 0.7;
+}
+
+/* Main Content Layout */
+.main-content {
+    flex-grow: 1;
+    max-width: 80rem;
+    /* max-w-7xl */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    /* gap-6 */
+}
+
+
+/* Hero Card */
+.hero-card {
+    position: relative;
+    height: 34.375rem;
+    /* h-[550px] */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover !important;
+    background-position: center !important;
+    overflow: hidden;
+    width: 100%; /* Ensure it takes full width of its container and is responsive */
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    z-index: 0;
+}
+
+.hero-card-content {
+    position: relative;
+    z-index: 10;
+    padding: 2rem 3rem;
+    /* p-8 sm:p-12 */
+    color: white;
+}
+
+.hero-title {
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 800;
+    /* font-extrabold */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 640px) {
+  .hero-card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+
+    /* sm breakpoint */
+    .hero-title {
+        font-size: 3rem;
+        /* sm:text-5xl */
+    }
+    .hero-description {
+      font-size: 1.25rem;
+  }
+
+  .bottom-grid > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+ 
+
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 3.75rem;
+    }
+    .bottom-grid > div {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .bottom-grid-title {
+      grid-column: span 4 / span 4;
+  }
+  .main-content {
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+}
+
+@media (min-width: 1280px) {
+  .bottom-grid > div {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+    max-width: 28rem;
+}
+
+.hero-button {
+    padding: 0.75rem 1.75rem;
+    background: linear-gradient(to right, #8B5CF6, #4F46E5);
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-button:hover {
+    background: linear-gradient(to right, #7C3AED, #4338CA);
+    transform: scale(1.05);
+}
+
+/* Right Column Cards */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* space-y-6 */
+}
+
+.feature-card {
+    position: relative;
+    padding: 1.5rem;
+    /* p-6 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    /* Gradient background handled by --accent-color in App.tsx */
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    /* text-2xl */
+    margin-right: 0.75rem;
+    /* mr-3 */
+    color: #a78bfa;
+    /* indigo-300 */
+    opacity: 0.8;
+    margin-bottom: 0.75rem;
+    /* mb-3 */
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 700;
+    /* font-bold */
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+.feature-description {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #a0aec0;
+    /* gray-400 */
+    margin-bottom: 1rem;
+    line-clamp: 3;
+}
+
+/* Bottom Grid */
+.bottom-grid {
+    max-width: 80rem;
+    /* max-w-7xl */
+    margin: 3rem auto;
+    /* Centering with top and bottom margin */
+    padding: 0 6rem;
+}
+
+
+.bottom-grid > div {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 column on small screens */
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+
+
+
+.bottom-grid-title {
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 700;
+    /* font-bold */
+    color: white;
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    padding-top: 1rem;
+    /* pt-4 */
+    grid-column: 1 / -1;
+    /* Ensure title spans all columns */
+}
+
+.bottom-grid-card {
+    position: relative;
+    padding: 1.25rem;
+    /* p-5 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 280px;
+}
+
+.bottom-grid-card-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    /* opacity-10 */
+    transition: transform 0.5s ease;
+    /* transition-transform duration-500 */
+}
+
+.bottom-grid-card:hover .bottom-grid-card-image {
+    transform: scale(1.05);
+    /* group-hover:scale-105 */
+}
+
+.bottom-grid-card-content {
+    position: relative;
+    z-index: 10;
+}
+
+.bottom-grid-card-title {
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 700;
+    /* font-bold */
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    /* mb-2 */
+}
+
+.bottom-grid-card-location {
+    font-size: 0.75rem;
+    /* text-xs */
+    color: #a0aec0;
+    /* gray-400 */
+    margin-bottom: 0.75rem;
+    /* mb-3 */
+}
+
+.bottom-grid-card-description {
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #d1d5db;
+    /* gray-300 */
+    line-clamp: 3;
+    margin-bottom: 1rem;
+    /* mb-4 */
+}
+
+/* Text truncation for descriptions */
+.truncate-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom-grid-button {
+    display: flex;
+    align-items: center;
+    color: #60a5fa;
+    /* blue-400 */
+    font-size: 0.75rem;
+    /* text-xs */
+    font-weight: 500;
+    /* font-medium */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* transition-colors duration-300 */
+    background: none;
+    /* No background */
+    border: none;
+    /* No border */
+    padding: 10px;
+    width: 120px;
+}
+
+.bottom-grid-button:hover {
+  background: linear-gradient(to right, #7C3AED, #4338CA);
+  transform: scale(1.05);
+    border-radius: 9999px;
+}
+
+.bottom-grid-button span {
+    margin-left: 0.25rem;
+    /* ml-1 */
+    font-size: 1rem;
+    /* text-sm */
+}
+
+/* Favorite Button */
+.favorite-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8B5CF6;
+    background: none;
+    border: 2px solid #8B5CF6;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    margin-left: 0.5rem;
+    
+}
+
+.favorite-button.favorite {
+    background: #5e4a8d;
+    color: #fff;
+    border-color: #8B5CF6;
+}
+
+.position-right{
+    position: absolute;
+    right: 15px;
+}
+
+.feature-button{
+    margin: 10px;
+}
+.span-sm{
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* .favorite-button:hover {
+  background: #8B5CF6;
+  color: #fff;
+  border-color: #8B5CF6;
+} */
+
+/* Global Glass Card Styles (defined in index.css, replicated for clarity if needed) */
+/*
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 80px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+*/
