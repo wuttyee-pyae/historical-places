@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import type { RootState } from "../store";
+import { motion } from 'framer-motion'; // Import framer-motion
 
 interface PlaceDetailProps {
   // No longer needs places as a prop, will get from Redux
@@ -33,7 +34,12 @@ const PlaceDetail: React.FC<PlaceDetailProps> = () => {
   }
 
   return (
-    <div className="app">
+    <motion.div
+      className="app"
+      initial={{ y: 50, opacity: 0 }} // Start slightly below and transparent
+      animate={{ y: 0, opacity: 1 }}   // Animate to original position and full opacity
+      transition={{ duration: 0.7, ease: "easeOut" }} // Smooth transition
+    >
       <div style={{ padding: "2rem", maxWidth: 700, margin: "0 auto" }}>
         {/* <button className="hero-button" style={{ marginBottom: 24 }} onClick={() => navigate("/")}>← Back</button> */}
         <div className="glass-card" style={{ padding: "2rem" }}>
@@ -44,7 +50,9 @@ const PlaceDetail: React.FC<PlaceDetailProps> = () => {
             style={{ width: "100%", maxHeight: 350, objectFit: "cover", borderRadius: "12px", marginBottom: "1rem" }}
             onError={e => { (e.currentTarget as HTMLImageElement).src = "/images/fallback.jpg"; }}
           />
-          <p style={{ color: "#555", marginBottom: "1rem" }}>{place.description}</p>
+          <p style={{ color: "#fff", marginBottom: "1rem" }}>{place.description}</p>
+          <p style={{ color: "#888", marginBottom: "1rem" }}> <strong>History:</strong></p>
+          <p style={{ color: "#fff", marginBottom: "1rem" }}>{place.history}</p>
           <p style={{ color: "#888", marginBottom: "1rem" }}>
             <strong>Location:</strong> {place.location}
           </p>
@@ -54,7 +62,7 @@ const PlaceDetail: React.FC<PlaceDetailProps> = () => {
           <button className="hero-button" onClick={() => navigate("/")}>Back</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

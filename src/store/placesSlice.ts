@@ -38,9 +38,8 @@ const placesSlice = createSlice({
 export const { toggleVisited, toggleFavorite, setPlaces } = placesSlice.actions;
 export default placesSlice.reducer;
 
-// Selectors
-const selectPlacesState = (state: RootState) => state.places || initialState; // Provide initialState as fallback
 
+const selectPlacesState = (state: RootState) => state.places || initialState;
 export const selectPlaces = createSelector(
   [selectPlacesState],
   (placesState) => placesState.places

@@ -4,8 +4,8 @@ interface FavoriteButtonProps {
   isFavorite: boolean;
   onClick: () => void;
   title: string;
-  className?: string; // Optional for additional styling
-  style?: React.CSSProperties; // Add this line
+  className?: string; 
+  style?: React.CSSProperties; 
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ isFavorite, onClick, title, className, style }) => {

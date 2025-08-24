@@ -33,7 +33,7 @@ const BottomGridCard: React.FC<BottomGridCardProps> = ({ place, onToggleFavorite
             isFavorite={!!place.visited}
             onClick={() => onToggleFavorite(place.id)}
             title={place.visited ? "Remove from favorites" : "Mark as favorite"}
-            className="position-right" // Add any specific styling classes
+            className="position-right" 
           />
         </div>
       </div>

@@ -6,4 +6,5 @@ export interface HistoricalPlace {
   location: string;
   year: number;
   visited?: boolean;
+  history?: string;
 }

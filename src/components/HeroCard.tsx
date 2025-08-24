@@ -10,7 +10,7 @@ interface HeroCardProps {
 
 const HeroCard: React.FC<HeroCardProps> = ({ place, onToggleFavorite, onExploreClick }) => {
   return (
-    <div className="hero-card glass-card" style={{ backgroundImage: `url(${place.image})`  }}>
+    <div className="hero-card glass-card" style={{ backgroundImage: `url(${place.image})` , marginTop: '100px' }}>
       <div className="hero-card-content">
         <h2 className="hero-title">{place.name}</h2>
         <p className="hero-description truncate-description">{place.description}</p>
@@ -20,8 +20,8 @@ const HeroCard: React.FC<HeroCardProps> = ({ place, onToggleFavorite, onExploreC
             isFavorite={!!place.visited}
             onClick={() => onToggleFavorite(place.id)}
             title={place.visited ? "Remove from favorites" : "Mark as favorite"}
-            className="position-right" // Reverted to original classes
-            style={{ marginRight: '8%' }} // Re-added inline style
+            className="position-right" 
+            style={{ marginRight: '8%' }} 
           />
         </div>
       </div>
